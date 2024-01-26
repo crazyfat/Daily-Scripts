@@ -15,7 +15,9 @@ def func(path, savedPath, sName='Sheet1', deleteNum=3, scoresNum=13):
     arr = np.array(df)
     newArr = []
     for row in arr:
-        scores = row[-scoresNum:]
+        scores = row[-scoresNum:].astype(float)
+        # scores进行判断 去除nan
+        scores = np.nan_to_num(scores)
         info = row[:-scoresNum]
         delIdx = np.argsort(scores)[:deleteNum]
         newScores = np.delete(scores, delIdx)
