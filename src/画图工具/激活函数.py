@@ -31,7 +31,6 @@ def get_central_ax():
     ax.yaxis.set_ticks_position('left')
     ax.spines['bottom'].set_position(('data', 0))
     ax.spines['left'].set_position(('data', 0))
-
     return ax
 
 
@@ -49,13 +48,26 @@ ax = get_central_ax()
 # ax.plot(x, y2, linestyle='--')
 # ax.plot(x, x, color='w')
 
-ax.plot(x, y3, linewidth=2.0)
-ax.plot(x, y4, linewidth=2.0)
+ax.plot(x, y3, linewidth=3.0)
+ax.plot(x, y4, linewidth=3.0)
+
+# 添加图例
 ax.legend(['ReLU', 'Softplus'])
+
+# 添加坐标轴箭头
+# ax.plot(1, 0, ">k", transform=ax.get_yaxis_transform(), clip_on=False)
+# ax.plot(0, 1, "^k", transform=ax.get_xaxis_transform(), clip_on=False)
+
+# 添加坐标轴信息
+# plt.xlabel('x')
+# plt.ylabel('纵坐标')
+
+# 设置坐标轴宽度
 ax.spines['left'].set_linewidth(1.5)
 ax.spines['bottom'].set_linewidth(1.5)
-plt.xticks([])
-plt.yticks([])
+
+plt.xticks([-6, -3, 0, 3, 6])
+plt.yticks([6, 3])
 plt.savefig('C:/Users/admin/Desktop/softpuls.pdf',format='pdf', bbox_inches='tight')
 plt.show()
 
